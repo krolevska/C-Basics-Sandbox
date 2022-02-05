@@ -4,11 +4,13 @@ public class MainClass
 {
     public static void Main()
     {
-        Console.WriteLine("Законодательство США допускало отправку детей по почте до 1913 года");
-        Console.WriteLine("Жопка");
-        var b = Console.ReadLine();
-        Convert.ToBoolean(b);
-        Console.WriteLine($"Ответ:{ b}");
-
+        Console.WriteLine("Введите числа в диапазоне от 1 до 100.");
+        string first = Console.ReadLine();
+        string second = Console.ReadLine();
+        Console.WriteLine("1 число: " + first);
+        Console.WriteLine("2 число: " + second);
+        double a = double.Parse(first);
+        double b = double.Parse(second);
+        Console.WriteLine(a / b);
     }
 }
