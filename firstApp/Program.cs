@@ -1,19 +1,25 @@
 ﻿using System;
 
+namespace Learning
+{ 
 public class MainClass
 {
     public static void Main()
     {
-        string rana = Console.ReadLine();
-        bool rama = bool.Parse(rana);
-        if (rama == true)
-        {
-            Console.WriteLine("Попадание!");
+        char input = char.Parse(Console.ReadLine());
+        switch (input)
+            {
+            case '1':
+                Console.WriteLine("Персонаж применяет аптечку");
+                break;
+            case '2':
+                Console.WriteLine("Персонаж пьет зелье");
+                break;
+            case 'e':
+                Console.WriteLine("Персонаж открывает дверь");
+                break;
+                }
         }
-        
-        else
-        {
-            Console.WriteLine("Промах!");
-        }
+
     }
 }
