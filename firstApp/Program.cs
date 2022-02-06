@@ -1,25 +1,18 @@
 ﻿using System;
 
-namespace Learning
-{ 
 public class MainClass
 {
     public static void Main()
     {
-        char input = char.Parse(Console.ReadLine());
-        switch (input)
+        for (int i = -100; i < 101; i++)
             {
-            case '1':
-                Console.WriteLine("Персонаж применяет аптечку");
-                break;
-            case '2':
-                Console.WriteLine("Персонаж пьет зелье");
-                break;
-            case 'e':
-                Console.WriteLine("Персонаж открывает дверь");
-                break;
+                string stop = Console.ReadLine();
+                Console.WriteLine("Для остановки введите 'exit':"); 
+                if(stop == "exit")
+                {
+                    break;
                 }
-        }
-
-    }
+                Console.WriteLine(i);
+             }
+     }
 }
