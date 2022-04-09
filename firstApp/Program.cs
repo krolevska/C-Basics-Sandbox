@@ -11,6 +11,7 @@ namespace Constant
             string inputOne = Console.ReadLine();
             double numberOne = Convert.ToDouble(inputOne);
             bool iSConstBigger = PI > numberOne;
+
             bool lastOne = MY_CONST == iSConstBigger;
             Console.WriteLine($"{lastOne}");
         }
