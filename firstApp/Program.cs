@@ -1,18 +1,18 @@
 ﻿using System;
 
-public class MainClass
+namespace Constant
 {
-    public static void Main()
+    class Program
     {
-        for (int i = -100; i < 101; i++)
-            {
-                string stop = Console.ReadLine();
-                Console.WriteLine("Для остановки введите 'exit':"); 
-                if(stop == "exit")
-                {
-                    break;
-                }
-                Console.WriteLine(i);
-             }
-     }
+        static void Main(string[] args)
+        {
+            const double PI = 3.141593;
+            const bool MY_CONST = true;
+            string inputOne = Console.ReadLine();
+            double numberOne = Convert.ToDouble(inputOne);
+            bool iSConstBigger = PI > numberOne;
+            bool lastOne = MY_CONST == iSConstBigger;
+            Console.WriteLine($"{lastOne}");
+        }
+    }
 }
