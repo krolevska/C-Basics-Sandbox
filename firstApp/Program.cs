@@ -6,14 +6,16 @@ namespace Constant
     {
         static void Main(string[] args)
         {
-            const double PI = 3.141593;
-            const bool MY_CONST = true;
-            string inputOne = Console.ReadLine();
-            double numberOne = Convert.ToDouble(inputOne);
-            bool iSConstBigger = PI > numberOne;
-
-            bool lastOne = MY_CONST == iSConstBigger;
-            Console.WriteLine($"{lastOne}");
+            int input = Convert.ToInt32(Console.ReadLine());
+            if (input > 3)
+            {
+                input += 10;     
+            }
+            else
+            {
+                input *= 10;
+            }    
+            Console.WriteLine(input);
         }
     }
 }
