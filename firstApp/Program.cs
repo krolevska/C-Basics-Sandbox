@@ -1,47 +1,63 @@
 ﻿using System;
 
-namespace Constant
+namespace Calculator
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int AB, BC, AC;
-            Console.Write("AB = ");
-            AB = Convert.ToInt32(Console.ReadLine());
-            Console.Write("BC = ");
-            BC = Convert.ToInt32(Console.ReadLine());
-            Console.Write("AC = ");
-            AC = Convert.ToInt32(Console.ReadLine());
-            bool realABC = AB + BC >= AC && AC + BC >= AB && AC + AB >= BC;
-            if (realABC)
-            {
-                Console.WriteLine("This is a triangle, thanks.");
-                bool squareABC = AB * AB + BC * BC == AC * AC || AC * AC + BC * BC == AB * AB || AC * AC + AB * AB == BC * BC;
-                bool evenABC = AB == AC && AB == BC && AC == BC;
-                bool isoABC = AB == BC || AC == BC || AB == AC;
-                if (squareABC)
+            while (true)
+            { 
+                    Console.Write("Give first number: ");
+                    float  A = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Give second number: ");
+                    float B = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Choose an arithmetic operation: +, -, * чи /? ");
+                    string C = Console.ReadLine();
+                    const string SUM = "+", MIN = "-", MULT = "*", DIV = "/";
+                    float RESULT = 0;
+                switch (C)
                 {
-                    Console.WriteLine("Triangle is square.");
-                }
-                else if (evenABC)
-                {
-                    Console.WriteLine("Triangle is equilateral.");
-                }
-                else if (isoABC)
-                {
-                    Console.WriteLine("Triangle is isosceles.");
-                }
-                else
-                {
-                    Console.WriteLine("This triangle is nor square, neither equilateral, neather isosceles.");
+                    case SUM:
+                        {
+                            RESULT = A + B;
+                            Console.WriteLine(RESULT);
+                            break;
+                        }
+                    case MIN:
+                        {
+                            RESULT = A - B;
+                            Console.WriteLine(RESULT);
+                            break;
+                        }
+                    case MULT:
+                        {
+                            RESULT = A * B;
+                            Console.WriteLine(RESULT);
+                            break;
+                        }
+                    case DIV:
+                        {
+                            if (B > 0)
+                            {
+                                RESULT = A / B;
+                                Console.WriteLine(RESULT);
+                            }
+                            else
+                            {
+                                RESULT = 0;
+                                Console.WriteLine("Cannot divide by zero. ");
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            RESULT = 0;
+                            Console.WriteLine("Unknown operation, try again. ");
+                            break;
+                        }
                 }
             }
-            else
-            {
-                Console.WriteLine("This is not a triangle.");
-            }
-                        
         }
     }
  }
