@@ -1,53 +1,49 @@
 ﻿using System;
 
-namespace Calculator
+namespace FuckingArray
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string[] monthNames = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-            int monthIndex = 0;
-            int countAttempts = 0;
-            int availableAttempts = 5;
 
-            while (monthIndex < monthNames.Length)
+            //1. получите от пользователя целое число.
+            Console.Write("How big is the array? ");
+            int arrayLength = Convert.ToInt32(Console.ReadLine());
+            
+            //2. Создайте массив целочисленных элементов, длинной с полученное число.
+            int[] array = new int[arrayLength];
+            
+            //3. С помощью цикла и обращаясь за значениями к пользователю заполните массив целочисленных элементов.
+            int index = 0;
+
+            while (index < arrayLength)
             {
-                // звернутися до користувача, щоб він ввів значення місяця по індексу
-                Console.Write($"Please type the name of the month number {monthIndex + 1}: ");
-
-                // користувач вводить значення місяця
-                string monthName = Console.ReadLine();
-
-                // перевіряємо, чи назва місяця співпадає
-                bool monthIsCorect = monthName == monthNames[monthIndex];
-
-
-                // якщо користувач пише правильно, наступна ітерація
-                if (monthIsCorect)
-                {
-                    monthIndex++;
-                    continue;
-                }
-
-                // якщо помиляється, повторюється та ж ітерація і росте лічильник спроб
-
-                else
-                {
-                    // якщо менше 6 спроб
-                    countAttempts++;
-                    bool attemptsLeft = countAttempts < availableAttempts;
-                    if (attemptsLeft)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+                Console.Write($"Please give me {index + 1} number: ");
+                array[index] = Convert.ToInt32(Console.ReadLine());
+                index++;
             }
 
+            //4. Отсортируйте массив по убыванию, после чего измените размер массива на +1 элемент.
+            Array.Sort(array);
+            Array.Reverse(array);
+
+            int[] tempArray = new int[array.Length + 1];
+            array.CopyTo(tempArray, 0);
+
+            Console.WriteLine("The array was increased by 1.");
+
+            //5. Обратитесь к пользователю и заполните новый элемент массива значением от пользователя.
+            Console.Write("Please give me new number: ");
+            tempArray[tempArray.Length - 1] = Convert.ToInt32(Console.ReadLine());
+            array = tempArray;
+            Console.Write($"The array now looks like this: ");
+            int indexFin = 0;
+            while (indexFin < array.Length)
+            {
+                Console.Write($"{array[indexFin]} ");
+                indexFin++;
+            }
         }
     }
- }
+}
