@@ -6,43 +6,28 @@ namespace FuckingArray
     {
         static void Main(string[] args)
         {
-
-            //1. получите от пользователя целое число.
-            Console.Write("How big is the array? ");
-            int arrayLength = Convert.ToInt32(Console.ReadLine());
-            
-            //2. Создайте массив целочисленных элементов, длинной с полученное число.
-            int[] array = new int[arrayLength];
-            
-            //3. С помощью цикла и обращаясь за значениями к пользователю заполните массив целочисленных элементов.
-            int index = 0;
-
-            while (index < arrayLength)
+            //1.Выведите на экран консоли все числа от 0 до 100;
+            for (int a = 0; a <= 100; a++)
             {
-                Console.Write($"Please give me {index + 1} number: ");
-                array[index] = Convert.ToInt32(Console.ReadLine());
-                index++;
+                Console.Write(a + " ");
             }
-
-            //4. Отсортируйте массив по убыванию, после чего измените размер массива на +1 элемент.
-            Array.Sort(array);
-            Array.Reverse(array);
-
-            int[] tempArray = new int[array.Length + 1];
-            array.CopyTo(tempArray, 0);
-
-            Console.WriteLine("The array was increased by 1.");
-
-            //5. Обратитесь к пользователю и заполните новый элемент массива значением от пользователя.
-            Console.Write("Please give me new number: ");
-            tempArray[tempArray.Length - 1] = Convert.ToInt32(Console.ReadLine());
-            array = tempArray;
-            Console.Write($"The array now looks like this: ");
-            int indexFin = 0;
-            while (indexFin < array.Length)
+            Console.WriteLine("");
+            //2.Выведите на экран числа от 1001 до 2500 с шагом – 3;
+            for (int b = 1001; b <= 2500; b += 3)
             {
-                Console.Write($"{array[indexFin]} ");
-                indexFin++;
+                Console.Write(b + " ");
+            }
+            //3.Выведите числа от 100 до 0 с шагом – 4;
+            Console.WriteLine("");
+            for (int c = 100; c >= 0; c -=4)
+            {
+                Console.Write(c + " ");
+            }
+            Console.WriteLine("");
+            //4.Выведите числа от 1 до 5 с шагом 0,2.
+            for (double d = 1; d <= 5; d +=0.2)
+            {
+                Console.Write(d + " ");
             }
         }
     }
