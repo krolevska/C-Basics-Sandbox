@@ -6,82 +6,41 @@ namespace FuckingMatrixMultiplying
     {
         static void Main(string[] args)
         {
-            //            Напишите программу, в которой создайте два двумерных массива,
-            //            по логике задачи реализующих математические матрицы.
-            Console.WriteLine("Let us multiply two matrixes? ");
-            decimal[,] arrayOne, arrayTwo;
 
-            //            Размерность массивов получите от пользователя.
-            //            Размерность массивов должна быть таковой, чтобы обеспечить возможность умножения этих матриц.
-            //            На это ограничение нужно выполнить проверку.
-            int linesArrayOne, columnsArrayOne, linesArrayTwo, columnsArrayTwo;
+            string[,,] bookshelves = new string[5, 10, 10];
 
-            Console.WriteLine("How many lines in first matrix? ");
-            linesArrayOne = Convert.ToInt32(Console.ReadLine());
+            bookshelves[2, 3, 4] = "Adventures of Tom Soyer";
+            bookshelves[3, 4, 5] = "CLR via C#";
+            bookshelves[4, 5, 6] = "Brand New World";
 
-            Console.WriteLine("How many columns in first matrix? ");
-            columnsArrayOne = Convert.ToInt32(Console.ReadLine());
+            Console.Write("What book are you looking for? ");
+            string request = Console.ReadLine();
+            bool place = default;
 
-            linesArrayTwo = 0;
-            Console.WriteLine("How many lines in second matrix? ");
-            linesArrayTwo = Convert.ToInt32(Console.ReadLine());
-
-            while (linesArrayTwo != columnsArrayOne)
+            for (int z = 0; z < bookshelves.GetLength(0); z++)
             {
-                Console.WriteLine("Try again");
-                linesArrayTwo = Convert.ToInt32(Console.ReadLine());
-            }
-
-            columnsArrayTwo = 0;
-            Console.WriteLine("How many columns in second matrix? ");
-            columnsArrayTwo = Convert.ToInt32(Console.ReadLine());
-
-            //При прохождении проверки, заполните массивы данными, получая их от пользователя.
-            arrayOne = new decimal[linesArrayOne, columnsArrayOne];
-            arrayTwo = new decimal[linesArrayTwo, columnsArrayTwo];
-
-            for (int i = 0; i < arrayOne.GetLength(0); i++)
-            {
-                for (int j = 0; j < arrayOne.GetLength(1); j++)
+                for (int x = 0; x < bookshelves.GetLength(1); x++)
                 {
-                    Console.WriteLine($"What is the {i + 1} number in the {j + 1} column in the first matrix? ");
-                    arrayOne[i, j] = Convert.ToInt32(Console.ReadLine());
-                }
-            }
-
-            for (int i = 0; i < arrayTwo.GetLength(0); i++)
-            {
-                for (int j = 0; j < arrayTwo.GetLength(1); j++)
-                {
-                    Console.WriteLine($"What is the {i + 1} number in the {j + 1} column in the second matrix? ");
-                    arrayTwo[i, j] = Convert.ToInt32(Console.ReadLine());
-                }
-            }
-            //foreach (int i in arrayOne)
-            //{
-            //    Console.Write(i);
-            //}
-
-            //foreach (int j in arrayTwo)
-            //{
-            //    Console.Write(j);
-            //}
-
-            //Умножьте матрица
-            decimal arraysMult = 0;
-            for (int i = 0; i < arrayOne.GetLength(0); i++)
-            {
-                for (int j = 0; j < arrayOne.GetLength(1); j++)
-                {
-                    for (int k = 0; k < arrayTwo.GetLength(1); k++)
+                    for (int y = 0; y < bookshelves.GetLength(2); y++)
                     {
-                        arraysMult += arrayOne[i, j] * arrayTwo[j, k];
+                        if (bookshelves[z,x,y] == request)
+                        {
+                            place = true;
+                            Console.Write($"Book is on the rack {z}, shelf {x}, place {y}. ");
+                            break;
+                        }
+                        else
+                        {
+                            ;
+
+                        }
                     }
-                }    
+                }
             }
-            
-            //Выведите на экран результат умножения матриц.
-            Console.WriteLine($"The result is {arraysMult}. ");
+            if (place == false)
+            {
+                Console.Write($"I cannot find the book. Please try again. ");
+            }
         }
     }
 }
