@@ -6,59 +6,23 @@ namespace FuckingMatrixMultiplying
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Give me the text. ");
 
-            string[,,,] bookshelves = new string[3, 5, 10, 10];
+            string text = Console.ReadLine();
 
-            bookshelves[0, 2, 3, 4] = "Adventures of Tom Soyer";
-            bookshelves[1, 3, 4, 5] = "CLR via C#";
-            bookshelves[2, 4, 5, 6] = "Brand New World";
+            string[][] words;
 
-            Console.Write("What book are you looking for? ");
-            string request = Console.ReadLine();
-            bool place = default;
+            string[] sentence = text.Split(".");
 
-            for (int r = 0; r < bookshelves.GetLength(0); r++)
+            words = new string[sentence.Length][];
+
+            for (int i = 0; i < sentence.Length; i++)
             {
-                for (int z = 0; z < bookshelves.GetLength(1); z++)
+                words[i] = sentence[i].Split(" ");
+
+                for (int j = 0; j < words[i].Length; j++)
                 {
-                    for (int x = 0; x < bookshelves.GetLength(2); x++)
-                    {
-                        for (int y = 0; y < bookshelves.GetLength(3); y++)
-                        {
-                            if (bookshelves[r, z, x, y] == request)
-                            {
-                                place = true;
-                                Console.Write($"Book is in room {r + 1} on the rack {z + 1}, shelf {x + 1}, place {y + 1}. ");
-                                break;
-                            }
-                            else
-                            {
-                                ;
-
-                            }
-                        }
-                    }
-                }
-
-            }
-            if (place == false)
-            {
-                Console.Write($"I cannot find the book. Please try again. ");
-            }
-            Console.WriteLine(" ");
-            Console.WriteLine("We've got lots of books: ");
-            for (int r = 0; r < bookshelves.GetLength(0); r++)
-            {
-                for (int z = 0; z < bookshelves.GetLength(1); z++)
-                {
-                    for (int x = 0; x < bookshelves.GetLength(2); x++)
-                    {
-                        for (int y = 0; y < bookshelves.GetLength(3); y++)
-                        {
-                            if (bookshelves[r, z, x, y] != null)
-                            Console.WriteLine($"{bookshelves[r, z, x, y]} ");
-                        }
-                    }
+                    Console.WriteLine(words[i][j]);
                 }
             }
         }
