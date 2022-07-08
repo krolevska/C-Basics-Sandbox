@@ -1,57 +1,35 @@
 ﻿using System;
 
-namespace SalaryCalc
+namespace Methods
 {
     class Program
     {
-        /// <summary>
-        /// Создайте метод, который считает зарплату рабочему, 
-        /// исходя из количества дней и подневной оплаты труда.
-        /// 
-        /// Пользователь вводит количество сотрудников предприятия,
-        /// стоимость 1 трудодня сотрудника и количество дней, за которые производится оплата.
-        /// </summary>
-        /// <returns>quontityEmployee, salary</returns>
-        static (int quontityEmployee, int salary) Input()
+        static int One(int a, int b, int c)
         {
-            Console.WriteLine("How many people work here? ");
-            int quontityEmployee = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("How much does 1 working day cost? ");
-            int costPerDay = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("How many days did you work? ");
-            int workingDays = Convert.ToInt32(Console.ReadLine());
-            int salary = costPerDay * workingDays;
-
-            return (quontityEmployee, salary);
+            return a + b + c;
         }
-        /// <summary>
-        /// Создайте метод, который принимает в себя количество сотрудников,
-        /// количество рабочих дней и цену трудодня,
-        /// и вычисляет общий объем денег, необходимый для оплаты полученному количеству сотрудников,
-        /// используя внутри себя первый метод.
-        /// 
-        /// Посчитайте и выведите на экран общий объем денег,
-        /// необходимый для оплаты зарплаты введенному пользователем количеству сотрудников.
-        /// </summary>
-        /// <returns>total</returns>
-        static int Money()
+        static int Two (ref int a, ref int b, ref int c)
         {
-            var input = Input();
-            int quontityEmployee = input.quontityEmployee, salary = input.salary;
-            int total = quontityEmployee * salary;
-            return total;
+            a++;
+            b++;
+            c++;
+            return a + b + c;
         }
-
         static void Main(string[] args)
         {
-
-            var input = Input();
-            int salary = input.salary;
-            Console.WriteLine($"The salary is {salary}");
-
-            int moneyVolume = Money();
-            Console.WriteLine($"We need {moneyVolume} this month");
-
+            int a = Convert.ToInt32(Console.ReadLine()) , b = Convert.ToInt32(Console.ReadLine()), c = Convert.ToInt32(Console.ReadLine());
+            bool method = Convert.ToBoolean(Console.ReadLine());
+            int sum;
+            if (method)
+            {
+                sum = One(a, b, c);
+            }    
+            else
+            {
+                sum = Two(ref a, ref b, ref c);
+            }
+            Console.WriteLine(sum);
         }
+
     }
 }
